@@ -3,10 +3,11 @@
 
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 datasource db {
-  provider = "mysql"
-  url      = "mysql://test:password@localhost:3306/mydatabase"
+  provider          = "postgresql"
+  url               = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl         = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL") // used for shadow reads
 }
 
 generator client {
