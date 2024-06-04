@@ -1,1 +1,1 @@
-export const HOST_NAME = process.env.HOST_NAME || "http://localhost:3000";
+export const VERCEL_URL = process.env.VERCEL_URL || "http://localhost:3000";
