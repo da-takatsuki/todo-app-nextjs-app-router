@@ -1,13 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
+import { ENV, IP_WHITELIST } from "./utils/variables";
 
 // IPホワイトリスト
-const IP_WHITELIST = [process.env.MY_WIFI_IP1, process.env.MY_WIFI_IP2];
+
+console.log("IP_WHITELIST", IP_WHITELIST);
+console.log("ENV", ENV);
 
 export async function middleware(request: NextRequest) {
   const res = NextResponse.next();
 
   // access-deniedページにはミドルウェアを適用しない
   if (request.nextUrl.pathname === "/access-denied") {
+    return res;
+  }
+  if (ENV === "local") {
     return res;
   }
 
