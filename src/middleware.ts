@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { ENV, IP_WHITELIST } from "./utils/variables";
+import { ENV, IP_WHITELIST, VERCEL_URL } from "./utils/variables";
 
 // IPホワイトリスト
 
 console.log("IP_WHITELIST", IP_WHITELIST);
 console.log("ENV", ENV);
+console.log("VERCEL_URL", VERCEL_URL);
 
 export async function middleware(request: NextRequest) {
   const res = NextResponse.next();
