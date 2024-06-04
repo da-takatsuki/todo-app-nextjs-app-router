@@ -19,10 +19,6 @@ const menuList = [
     name: "Todoアプリ",
     url: "/todo",
   },
-  {
-    name: "おまけ",
-    url: "/extra",
-  },
 ];
 
 function Header() {

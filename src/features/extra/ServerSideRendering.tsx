@@ -2,11 +2,9 @@ import { VERCEL_URL } from "@/utils/variables";
 import Image from "next/image";
 
 export default async function ServerSideRendering() {
-  console.log("start");
   const res = await fetch(`${VERCEL_URL}/api/pokemon`, {
     cache: "no-store",
   });
-  console.log("end");
   const data = await res.json();
 
   return (
