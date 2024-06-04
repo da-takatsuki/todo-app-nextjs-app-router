@@ -1,27 +1,7 @@
-import { prisma } from "@/lib/prisma";
-import { redirect } from "next/navigation";
+import AddButton from "@/features/todo-create/components/AddButton";
+import { createTodo } from "@/features/todo/actions";
 
 function CreateTodoPage() {
-  async function createTodo(formData: FormData) {
-    "use server";
-    const rawFormData = {
-      title: formData.get("title") || "",
-      description: formData.get("description") || "",
-    };
-    try {
-      await prisma.todo.create({
-        data: {
-          title: rawFormData.title as string,
-          description: rawFormData.description as string,
-        },
-      });
-      redirect("/todo");
-    } catch (e) {
-      console.log(e);
-      throw e;
-    }
-  }
-
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white">
       <h2 className="text-lg font-semibold mb-4 text-center">タスク追加</h2>
@@ -56,12 +36,7 @@ function CreateTodoPage() {
           ></textarea>
         </div>
         <div className="flex justify-end">
-          <button
-            type="submit"
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            追加
-          </button>
+          <AddButton />
         </div>
       </form>
     </div>

@@ -2,6 +2,12 @@ import { getTodoList } from "@/features/todo/actions";
 import AddButton from "@/features/todo/components/AddButton";
 import DeleteButton from "@/features/todo/components/DeleteButton";
 
+interface Todo {
+  id: number;
+  title: string;
+  description: string;
+}
+
 async function Todo() {
   const todos = await getTodoList();
 
@@ -12,7 +18,7 @@ async function Todo() {
         <AddButton />
       </div>
       <div className="mt-4 p-4">
-        {todos.map((todo) => {
+        {todos.map((todo: Todo) => {
           return (
             <button
               key={todo.id}

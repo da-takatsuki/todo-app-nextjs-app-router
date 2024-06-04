@@ -29,6 +29,7 @@ export async function createTodo(formData: FormData) {
 }
 
 export async function deleteTodo(id: number) {
+  "use server";
   try {
     await prisma.todo.delete({
       where: {
