@@ -26,12 +26,10 @@ function Extra() {
         >
           サーバーサイドレンダリング ver
         </Link>
-        <Link
-          href="/extra/ssg"
-          className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md w-[400px] text-center"
-        >
-          静的サイトジェネレーター ver
-        </Link>
+        <div className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md w-[400px] text-center">
+          静的サイトジェネレーター
+          ver(なんかVercel上だとバグってるのでローカルで確認してください)
+        </div>
       </div>
     </div>
   );
