@@ -7,20 +7,26 @@ export async function middleware(request: NextRequest) {
   const res = NextResponse.next();
 
   // // access-deniedページにはミドルウェアを適用しない
-  // if (request.nextUrl.pathname === "/access-denied") {
-  //   return res;
-  // }
+  if (request.nextUrl.pathname === "/access-denied") {
+    return res;
+  }
 
-  // // ipアドレスを取得
-  // let ip: string = request.ip ?? request.headers.get("x-real-ip") ?? "";
+  // ipアドレスを取得
+  let ip: string = request.ip ?? request.headers.get("x-real-ip") ?? "";
 
-  // // プロキシ経由の場合
-  // const forwardedFor = request.headers.get("x-forwarded-for");
+  // プロキシ経由の場合
+  const forwardedFor = request.headers.get("x-forwarded-for");
 
-  // // プロキシ経由の場合は、プロキシのIPアドレスを取得
-  // if (!ip && forwardedFor) {
-  //   ip = forwardedFor.split(",").at(0) ?? "Unknown";
-  // }
+  // プロキシ経由の場合は、プロキシのIPアドレスを取得
+  if (!ip && forwardedFor) {
+    ip = forwardedFor.split(",").at(0) ?? "Unknown";
+  }
+
+  console.log("ip", ip);
+  console.log("IP_WHITELIST", IP_WHITELIST);
+  console.log("process.env.MY_WIFI_IP1", process.env.MY_WIFI_IP1);
+  console.log("process.env.MY_WIFI_IP2", process.env.MY_WIFI_IP2);
+  console.log("forwardedFor", forwardedFor);
 
   // // 取得したIPアドレスがホワイトリストに含まれているかチェックし、含まれていない場合はアクセス拒否
   // if (!IP_WHITELIST.includes(ip)) {
