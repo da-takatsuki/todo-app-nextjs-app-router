@@ -1,7 +1,6 @@
 import { getTodoList } from "@/features/todo/actions";
 import AddButton from "@/features/todo/components/AddButton";
 import DeleteButton from "@/features/todo/components/DeleteButton";
-import Link from "next/link";
 
 interface Todo {
   id: number;
@@ -20,8 +19,7 @@ async function Todo() {
       </div>
       <div className="space-y-4">
         {todos.map((todo: Todo) => (
-          <Link
-            href={`/todo/${todo.id}`}
+          <div
             key={todo.id}
             className="flex items-center justify-between border p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow duration-300"
           >
@@ -32,7 +30,7 @@ async function Todo() {
             <div className="flex items-center space-x-2">
               <DeleteButton id={todo.id} />
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </div>
