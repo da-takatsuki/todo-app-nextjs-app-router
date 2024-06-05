@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 
 export const getTodoList = async () => {
   const todos = await prisma.todo.findMany();
+  revalidatePath("/todo");
   return todos;
 };
 
