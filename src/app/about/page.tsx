@@ -72,9 +72,12 @@ const About = () => {
                 <br />
                 これにより、初回読み込み時の表示速度が向上し、SEOの効果も高まります。
               </p>
-              <a href="" className="text-blue-600 hover:underline mt-4 block">
+              <Link
+                href="/main-feature/rendering"
+                className="text-blue-600 hover:underline mt-4 block"
+              >
                 CSR/SSR/SSGについて詳しくはこちら →
-              </a>
+              </Link>
             </div>
             <div className="bg-gray-100 p-8 rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold mb-4 text-green-600">
@@ -87,9 +90,12 @@ const About = () => {
                 <br />
                 また新しくServerActions機能によりクライアントのファイルの中でサーバで実行可能な処理を実装できるようになりました。
               </p>
-              <a href="" className="text-blue-600 hover:underline mt-4 block">
+              <Link
+                href="/main-feature/api"
+                className="text-blue-600 hover:underline mt-4 block"
+              >
                 APIRoute / ServerActionsについて →
-              </a>
+              </Link>
             </div>
             <div className="bg-gray-100 p-8 rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold mb-4 text-green-600">
@@ -101,9 +107,12 @@ const About = () => {
                 これにより、ページ間の移動がスムーズであり、
                 開発者はルーティングに関する心配をする必要がありません。
               </p>
-              <a href="" className="text-blue-600 hover:underline mt-4 block">
+              <Link
+                href="/main-feature/routing"
+                className="text-blue-600 hover:underline mt-4 block"
+              >
                 PageRouter vs AppRouter はこちら →
-              </a>
+              </Link>
             </div>
             <div className="bg-gray-100 p-8 rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold mb-4 text-green-600">
